@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <h2><title>Researcher Information</title></h2>
+    
+    <style> 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #10dfb2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+    width: 400px;
+    background-color: rgb(3, 221, 137); /* Added semicolon here */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="submit"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #06ce6a;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #15e76c;
+        }
+
+        .back-button {
+            text-align: right;
+        }
+
+        .back-button button {
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Researcher Information</h2>
+
+    <form action="researchers.inc.php" method="POST" onsubmit="return validateResearcherForm() && displayRegistrationMessage()">
+        <label for="researcher-number">Researcher's number</label>
+        <input type="text" id="researcher-number" name="researcher-number" required>
+
+        <label for="researcher-surname">Researcher's surname</label>
+        <input type="text" id="researcher-surname" name="researcher-surname" required>
+
+        <label for="researcher-phone">Researcher's phone number</label>
+        <input type="tel" id="researcher-phone" name="researcher-phone" required>
+
+        <label for="researcher-qualifications">Researcher's other qualifications</label>
+        <input type="text" id="researcher-qualifications" name="researcher-qualifications" required>
+
+        <label for="researcher-email">Researcher's email</label>
+        <input type="email" id="researcher-email" name="researcher-email" required>
+
+        <label for="researcher-research-area">Researcher's research area</label>
+        <input type="text" id="researcher-research-area" name="researcher-research-area" required>
+
+        <label for="researcher-theme">Researcher's theme</label>
+        <input type="text" id="researcher-theme" name="researcher-theme" required>
+
+        <input type="submit" name="save" value="Submit">
+    </form>
+
+    <div class="back-button">
+        <button onclick="goToCollaborators()">Back</button>
+    </div>
+</div>
+
+<script>
+    function validateResearcherForm() {
+        var researcherNumber = document.getElementById("researcher-number").value.trim();
+        var researcherSurname = document.getElementById("researcher-surname").value.trim();
+        var researcherPhone = document.getElementById("researcher-phone").value.trim();
+        var researcherQualifications = document.getElementById("researcher-qualifications").value.trim();
+        var researcherEmail = document.getElementById("researcher-email").value.trim();
+        var researcherResearchArea = document.getElementById("researcher-research-area").value.trim();
+        var researcherTheme = document.getElementById("researcher-theme").value.trim();
+
+        if (researcherNumber === "" || researcherSurname === "" || researcherPhone === "" || researcherQualifications === "" || researcherEmail === "" || researcherResearchArea === "" || researcherTheme === "") {
+            alert("All fields are required!");
+            return false;
+        }
+
+        return true;
+    }
+
+    function goToCollaborators() {
+        window.location.href = "collaborators.html";
+    }
+
+    function displayRegistrationMessage() {
+        alert("Registration successful!");
+        return true;
+    }
+</script>
+
+</body>
+</html>

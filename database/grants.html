@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grants Database</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #12e772;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 400px;
+            background-color: #90e4d2;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+            color: #095246;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="submit"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #38d8cb;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #09e452;
+        }
+
+        .back-button {
+            text-align: right;
+        }
+
+        .back-button button {
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Grants Database</h2>
+
+    <form action="grants.inc.php" method="POST" onsubmit="return validateGrantsForm() && displayRegistrationMessage()">
+        <label for="grants-name">Grant's Name</label>
+        <input type="text" id="grants-name" name="grants-name" required>
+
+        <label for="grants-description">Grant's Description</label>
+        <input type="text" id="grants-description" name="grants-description" required>
+
+        <label for="grants-duration">Grant's Duration</label>
+        <input type="text" id="grants-duration" name="grants-duration" required>
+
+        <label for="grants-project">Grant's Project</label>
+        <input type="text" id="grants-project" name="grants-project" required>
+
+        <label for="grants-research-area">Grant's Research Area</label>
+        <input type="text" id="grants-research-area" name="grants-research-area" required>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div class="back-button">
+        <button onclick="goToResearchers()">Back</button>
+    </div>
+</div>
+
+<script>
+    function validateGrantsForm() {
+        var grantsName = document.getElementById("grants-name").value.trim();
+        var grantsDescription = document.getElementById("grants-description").value.trim();
+        var grantsDuration = document.getElementById("grants-duration").value.trim();
+        var grantsProject = document.getElementById("grants-project").value.trim();
+        var grantsResearchArea = document.getElementById("grants-research-area").value.trim();
+
+        if (grantsName === "" || grantsDescription === "" || grantsDuration === "" || grantsProject === "" || grantsResearchArea === "") {
+            alert("All fields are required!");
+            return false;
+        }
+
+        return true;
+    }
+
+    function displayRegistrationMessage() {
+        alert("Submission successful!");
+        return true;
+    }
+
+    function goToResearchers() {
+        window.location.href = "researchers.html";
+    }
+</script>
+
+</body>
+
+</html>

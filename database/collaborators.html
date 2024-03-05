@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborators Database</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #12e772;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 400px;
+            background-color: #90e4d2;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+            color: #095246;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="submit"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #38d8cb;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #09e452;
+        }
+
+        .back-button {
+            text-align: right;
+        }
+
+        .back-button button {
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Collaborators Database</h2>
+
+    <form action="collab.inc.php" method="POST" onsubmit="return validateCollaboratorsForm() && displayRegistrationMessage()">
+        <label for="collaborators-name">Collaborator's Name</label>
+        <input type="text" id="collaborators-name" name="collaborators-name" required>
+
+        <label for="collaborators-email">Collaborator's Email</label>
+        <input type="email" id="collaborators-email" name="collaborators-email" required>
+
+        <label for="collaborators-project">Collaborator's Project</label>
+        <input type="text" id="collaborators-project" name="collaborators-project" required>
+
+        <label for="collaborators-phone">Collaborator's Phone Number</label>
+        <input type="tel" id="collaborators-phone" name="collaborators-phone" required>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div class="back-button">
+        <button onclick="goToResearchers()">Back</button>
+    </div>
+</div>
+
+<script>
+    function validateCollaboratorsForm() {
+        var collaboratorsName = document.getElementById("collaborators-name").value.trim();
+        var collaboratorsEmail = document.getElementById("collaborators-email").value.trim();
+        var collaboratorsProject = document.getElementById("collaborators-project").value.trim();
+        var collaboratorsPhone = document.getElementById("collaborators-phone").value.trim();
+
+        if (collaboratorsName === "" || collaboratorsEmail === "" || collaboratorsProject === "" || collaboratorsPhone === "") {
+            alert("All fields are required!");
+            return false;
+        }
+
+        return true;
+    }
+
+    function displayRegistrationMessage() {
+        alert("Submission successful!");
+        return true;
+    }
+
+    function goToResearchers() {
+        window.location.href = "researchers.html";
+    }
+</script>
+
+</body>
+
+</html>

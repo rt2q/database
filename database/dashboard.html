@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- Custom CSS -->
+    <style>
+      /* Add your custom CSS styles here */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8fafa;
+      }
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 250px;
+        padding: 20px;
+        background-color: #12aa70;
+        color: #fff;
+        transition: width 0.3s ease;
+      }
+      .content {
+        margin-left: 250px;
+        padding: 20px;
+      }
+      .list-group-item {
+        background-color: transparent;
+        color: #fff;
+      }
+      .sidebar-collapsed {
+        width: 50px;
+      }
+      .logo-container img{
+        transition: opacity 0.3s ease;max-width: 50px; /* Adjust the maximum width as needed */
+        height: auto;
+      }
+      .logo-container.collapsed img {
+        opacity: 0; max-width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: green;">
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto"> <!-- Adjusted class to 'ml-auto' for right alignment -->
+          <li class="nav-item active">
+            <a class="nav-link" href="researchers.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="sidebar" id="sidebar">
+      <div class="logo-container">
+        <h2><img src="jkuat logo.png" alt="logo" /> JREIMS</h2>
+      </div>
+      <div class="list-group">
+        <a href="researchers.html" class="list-group-item list-group-item-action"
+          >Researchers</a
+        >
+        <a href="login.html" class="list-group-item list-group-item-action"
+          >Users</a
+        >
+        <a href="grants.html" class="list-group-item list-group-item-action" 
+          >Grants</a
+        >
+        <a href="collaborators.html" class="list-group-item list-group-item-action"
+          >Collaborators</a
+        >
+        <a href="project.html" class="list-group-item list-group-item-action"
+          >Project</a
+        >
+       
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('#sidebar').click(function () {
+          $(this).toggleClass('sidebar-collapsed');
+          $('.logo-container').toggleClass('collapsed');
+        });
+      });
+    </script>
+  </body>
+</html>
